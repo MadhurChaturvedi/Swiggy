@@ -1,0 +1,13 @@
+.fuck {
+  color: red;
+}
+
+.grandParents {
+  border: red solid 1px;
+}
+
+.parent1,
+.parent2 {
+  background: rgb(83, 74, 59);
+  color: #fff;
+}
