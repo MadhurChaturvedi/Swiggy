@@ -1,13 +1,157 @@
-.fuck {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-.grandParents {
-  border: red solid 1px;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid black;
 }
 
-.parent1,
-.parent2 {
-  background: rgb(83, 74, 59);
+.header-logo {
+  width: 40px;
+}
+
+.Nav-Links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  gap: 15px;
+  font-size: small;
+  transition: 0.3s;
+}
+
+.Nav-Links ul li {
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.Nav-Links ul li:hover {
+  color: blueviolet;
+  transition: 0.3s;
+}
+
+/* body */
+.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* Card */
+
+.res-card {
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  height: auto;
+  transition: 0.1s;
+  border-radius: 15px;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+}
+.res-img {
+  width: 100%;
+}
+
+.res-card:hover {
+  box-shadow: 1px 3px 0px 3px #af5df0;
+  transition: 0.1s;
+}
+
+.res-card button {
+  padding: 2px;
+  border: 1px solid black;
+  background: #fff;
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.1s;
+}
+.res-card button:hover {
+  background-color: #af5df0;
   color: #fff;
+  transition: 0.1s;
+}
+.res-card button:active {
+  background-color: #ffffff;
+  padding: 0px;
+  color: rgb(80, 79, 79);
+}
+
+/* Search */
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.search_input_Box {
+  width: 60%;
+  padding: 15px;
+  outline: none;
+  
+}
+
+.search-btn{
+  padding: 15px;
+  background-color: #af5df0;
+  color: #FFF;
+}
+
+/*  */
+.res-container {
+  height: 90%;
+  width: 90%;
+  /* padding: 10 30 0 80; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: auto;
+  padding-bottom: 5%;
+}
+
+/* Footer */
+.all-rights {
+  padding-top: 5px;
+  padding: 5px;
+  text-align: center;
+  color: #ffff;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-Links {
+  width: 300px;
+}
+
+
+@media (max-width: 600px) {
+  .footer{
+    font-size: 14px;
+  }
 }
