@@ -6,6 +6,7 @@ const Header = () => {
         alignItem: "center",
         justifyContent: "center",
         gap: "5px",
+        cursor: "pointer"
     }
     return (
         <header className="header">
@@ -61,7 +62,7 @@ const Body = () => {
         <div className="body">
             <div className="search">
                 <input type="text" className="search_input_Box" placeholder="Search Food Here... 😋" />
-                <button className="search-btn">Cook Here</button>
+                <button className="search-btn">🔎</button>
             </div>
             <div className="res-container">
                 {/* Restaurant Card */}
@@ -75,7 +76,6 @@ const Body = () => {
                 <RestaurantCard />
                 <RestaurantCard />
                 <RestaurantCard />
-
             </div>
         </div>
     )

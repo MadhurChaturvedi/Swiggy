@@ -14,6 +14,7 @@
   margin: auto;
   padding: 15px;
   border: 1px solid black;
+  user-select: none;
 }
 
 .header-logo {
@@ -64,6 +65,7 @@
   cursor: pointer;
   align-items: center;
   text-align: center;
+  user-select: none;
 }
 .res-img {
   width: 100%;
@@ -81,6 +83,7 @@
   width: 100%;
   border-radius: 15px;
   transition: 0.1s;
+  user-select: none;
 }
 .res-card button:hover {
   background-color: #af5df0;
@@ -107,13 +110,12 @@
   width: 60%;
   padding: 15px;
   outline: none;
-  
 }
 
-.search-btn{
+.search-btn {
   padding: 15px;
   background-color: #af5df0;
-  color: #FFF;
+  color: #fff;
 }
 
 /*  */
@@ -149,9 +151,8 @@ footer {
   width: 300px;
 }
 
-
 @media (max-width: 600px) {
-  .footer{
+  .footer {
     font-size: 14px;
   }
 }
