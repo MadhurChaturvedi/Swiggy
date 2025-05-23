@@ -1,3 +1,5 @@
+import { LOGO_URL } from "../utils/const"
+
 export default function Header() {
     const Logo = {
         display: "flex",
@@ -9,7 +11,7 @@ export default function Header() {
     return (
         <header className="header">
             <div className="header-logo" style={Logo}>
-                <img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
+                <img src={LOGO_URL}
                     alt="no-food-image"
                     width={20}
                 />

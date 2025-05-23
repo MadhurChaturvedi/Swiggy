@@ -26,6 +26,7 @@
   gap: 15px;
   font-size: small;
   transition: 0.3s;
+  padding: 0 5px 0 5px;
 }
 
 .Nav-Links ul li {
