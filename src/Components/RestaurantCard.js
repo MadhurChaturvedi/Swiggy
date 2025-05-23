@@ -16,13 +16,17 @@ export const RestaurantCard = (props) => {
             />
             <h4>{name}</h4>
             <p>{cuisines?.join(', ')}</p>
-            <p>Rating - &#9733; {avgRating}</p>
+            <p>Rating - {avgRating} </p>
             <p>
-                {typeof costForTwo === "number"
-                    ? `₹${costForTwo / 100}`
-                    : "Price not available"}
+                {/* {typeof costForTwo === "number"
+                    ? `₹${ / 100}`
+                    : "Price not available"} */}
+                {costForTwo}
             </p>
-            <button className="buy">Buy</button>
+            <div style={{ paddingTop: "5px", display: "flex", flexDirection: 'column', gap: "15px" }}>
+                <button className="buy">Buy</button>
+                <button className="buy">Add to Cart</button>
+            </div>
         </div>
     );
 };
