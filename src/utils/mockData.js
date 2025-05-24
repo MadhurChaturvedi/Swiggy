@@ -74,7 +74,7 @@ const resList = [
             areaName: "Btm Layout",
             costForTwo: "₹350 for two",
             cuisines: ["Andhra", "Biryani", "South Indian"],
-            avgRating: 4.3,
+            avgRating: 3.2,
             parentId: "10496",
             avgRatingString: "4.3",
             totalRatingsString: "5K+",

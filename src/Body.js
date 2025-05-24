@@ -5,7 +5,7 @@ import resList from "./utils/mockData.js"
 import { useState } from "react" //this is called named import
 
 const Body = () => {
-    const [] = useState();
+    const [listRestaurant, setListRestaurant] = useState(resList);
     return (
         <div className="body">
             <div className="search">
@@ -16,12 +16,16 @@ const Body = () => {
             </div>
             {/* filter btn */}
             <div className="filter-btn-space">
-                <button onClick={() => { alert("Fuck you ") }} className="filter-btn">🍔Top rated restaurant</button>
+                <button onClick={() => {
+                    const filteredList = listRestaurant.filter(
+                        (res) => res.info.avgRating > 4)
+                    setListRestaurant(filteredList)
+                }} className="filter-btn">🍔Top rated restaurant</button>
             </div>
             <div className="res-container">
                 {/* Restaurant Card */}
                 {
-                    resList.map((restaurant) => {
+                    listRestaurant.map((restaurant) => {
                         return (
                             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                         )

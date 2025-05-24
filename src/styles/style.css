@@ -26,6 +26,7 @@
   gap: 15px;
   font-size: small;
   transition: 0.3s;
+  /* background: red; */
   padding: 0 5px 0 5px;
 }
 
@@ -46,6 +47,15 @@
   .header-logo {
     visibility: hidden;
   }
+  .Nav-Links ul li {
+    font-size: smaller;
+    padding: 0 0px 0 0px;
+    font-weight: 500;
+  }
+  .header {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* body */
@@ -57,6 +67,7 @@
   align-items: center;
   justify-content: center;
   padding: 5px;
+  gap: 5px;
 }
 
 /* Card */
@@ -73,7 +84,7 @@
   cursor: pointer;
   align-items: center;
   text-align: center;
-  user-select: none;
+  /* user-select: none; */
 }
 .res-img {
   width: 100%;
