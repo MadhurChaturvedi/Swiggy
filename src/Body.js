@@ -1,34 +1,38 @@
 import { RestaurantCard } from "./Components/RestaurantCard"
+import Simmer from "./Components/Simmer.js";
 import { BTN_URL } from "./utils/const.js"
-// import resList from "./utils/mockData.js"
 
-import { useState, useEffect } from "react" //this is called named import
+import { useState, useEffect } from "react"
 
 const Body = () => {
+
     const [listRestaurant, setListRestaurant] = useState([]);
-    //   useEffect Hook
 
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2546547&lng=77.4006229&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
+
+        // Check and extract restaurant data safely
         const restaurants = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-        // if (!restaurants) return (<p>Loading...</p>)
-        setListRestaurant(restaurants)
-        console.log(listRestaurant);
-
-
+        // Only set state if restaurants exists
+        if (restaurants) {
+            setListRestaurant(restaurants);
+        } else {
+            console.log("Restaurant data not found in API response.");
+        }
     }
 
-    // cors polecy
-
-    // two parameter call back function and second one is dependency array
     useEffect(() => {
-        // console.log("useEffect Called");
-        fetchData()
+        fetchData();
     }, []);
 
+    // Optional: log the updated restaurant list after state change
+
+
+    if (listRestaurant.length === 0) {
+        return  <Simmer />
+    }
 
     return (
         <div className="body">
@@ -38,7 +42,7 @@ const Body = () => {
                     <img src={BTN_URL} width={15} alt="" />
                 </button>
             </div>
-            {/* filter btn */}
+
             <div className="filter-btn-space">
                 <button onClick={() => {
                     const filteredList = listRestaurant.filter(
@@ -46,8 +50,8 @@ const Body = () => {
                     setListRestaurant(filteredList)
                 }} className="filter-btn">🍔Top rated restaurant</button>
             </div>
+
             <div className="res-container">
-                {/* Restaurant Card */}
                 {
                     listRestaurant.map((restaurant) => {
                         return (
@@ -56,9 +60,9 @@ const Body = () => {
                     })
                 }
             </div>
+           
         </div>
     )
 }
 
-
-export default Body
+export default Body;
