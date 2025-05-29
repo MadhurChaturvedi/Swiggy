@@ -127,6 +127,8 @@
   background-size: 300%;
   background-position-x: 100%;
   animation: shimmer 1s infinite linear;
+  transition: 0.1s;
+  border-radius: 15px;
 }
 
 @keyframes shimmer {
@@ -148,7 +150,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 15px; 
 }
 
 .search_input_Box {

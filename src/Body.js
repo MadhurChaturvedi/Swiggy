@@ -30,11 +30,15 @@ const Body = () => {
     // Optional: log the updated restaurant list after state change
 
 
-    if (listRestaurant.length === 0) {
-        return  <Simmer />
-    }
+    // if () {
+    //     return  <Simmer />
+    // }
 
-    return (
+    return listRestaurant.length === 0 ? <div className="body">
+        <div className="res-container">
+            <Simmer />
+        </div>
+    </div> : (
         <div className="body">
             <div className="search">
                 <input type="text" className="search_input_Box" placeholder="Search Food Here... 😋" />
@@ -60,7 +64,7 @@ const Body = () => {
                     })
                 }
             </div>
-           
+
         </div>
     )
 }
