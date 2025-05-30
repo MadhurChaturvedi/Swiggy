@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { LOGO_URL } from "../utils/const"
 
 export default function Header() {
@@ -15,10 +15,15 @@ export default function Header() {
             borderRadius: "10px"
         }
     }
-    const [btnStatus, setBtnStatus] = useState("Login")
+
+    const [btnStatus, setBtnStatus] = useState("Login");
+    // useEffect called
+    useEffect(() => {
+        console.log("useEffect called"); 
+    }, [btnStatus])
     return (
         <header className="header">
-            {/* windows navabr */}
+            {/* windows navbar */}
             <div style={{ display: "flex", justifyContent: "space-around", width: "100vw" }}>
                 <div className="header-logo" style={Styles.Logo}>
                     <img src={LOGO_URL}
