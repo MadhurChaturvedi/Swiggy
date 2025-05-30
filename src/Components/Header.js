@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { LOGO_URL } from "../utils/const"
+import { Link } from "react-router";
 
 export default function Header() {
     const Styles = {
@@ -19,7 +20,7 @@ export default function Header() {
     const [btnStatus, setBtnStatus] = useState("Login");
     // useEffect called
     useEffect(() => {
-        console.log("useEffect called"); 
+        console.log("useEffect called");
     }, [btnStatus])
     return (
         <header className="header">
@@ -33,9 +34,10 @@ export default function Header() {
                 </div>
                 <div className="Nav-Links">
                     <ul>
-                        <li>HOME</li>
-                        <li>About</li>
-                        <li>Follow Us</li>
+                        <li><Link to="/" className="link">HOME</Link></li>
+                        <li><Link to="/about" className="link">ABOUT</Link></li>
+                        <li><Link to="/follow" className="link">FOLLOW US</Link></li>
+                        <li><Link to="/contact" className="link">Contact</Link></li>
                         <li>CART-[0]</li>
                         <button onClick={() => {
                             btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")

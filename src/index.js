@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 // import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Header from "./Components/Header.js";
 import Body from "./Body.js";
 import Footer from "./Components/Footer.js";
@@ -12,7 +12,7 @@ function AppLayout() {
     return (
         <div className="App">
             <Header />
-            <Body />
+            <Outlet />
             <Footer />
         </div>
     )
@@ -23,15 +23,21 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Body />
+            },
+            {
+                path: "/about",
+                element: <About />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+        ],
         errorElement: <Error />
-    },
-    {
-        path: "/about",
-        element: <About />
-    },
-    {
-        path: "/contact",
-        element: <Contact />
     },
 ]);
 

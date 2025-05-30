@@ -35,6 +35,10 @@
   transition: 0.3s;
   font-weight: 600;
 }
+
+.Nav-Links ul li .link {
+  text-decoration: none;
+}
 .Nav-Links ul li:hover {
   color: blueviolet;
   transition: 0.3s;
