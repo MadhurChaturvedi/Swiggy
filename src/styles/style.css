@@ -58,6 +58,16 @@
   }
 }
 
+.mob-res {
+  display: none;
+}
+
+/* @media screen and (max-width: 600) {
+  body {
+    background-color: lightgreen;
+  }
+} */
+
 /* body */
 .body {
   width: 100%;
@@ -68,6 +78,11 @@
   justify-content: center;
   padding: 5px;
   gap: 5px;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    flex-direction: row;
+  }
 }
 
 /* Card */
@@ -81,6 +96,8 @@
   /* height: auto; */
   transition: 0.1s;
   border-radius: 15px;
+  height: fit-content;
+  height: min-content;
   cursor: pointer;
   align-items: center;
   text-align: center;
@@ -150,7 +167,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px; 
+  padding: 15px;
 }
 
 .search_input_Box {

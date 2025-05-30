@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className="footer" style={{ width: "100vw", height: "15vh", background: "FFF", color: "#8395a7", border: "1px solid black" }}>
             <br />
-            © 2025 YourCompanyName. All rights reserved.
+            © 2025 Bhukkad. All rights reserved.
         </footer>
     )
 }

@@ -18,23 +18,47 @@ export default function Header() {
     const [btnStatus, setBtnStatus] = useState("Login")
     return (
         <header className="header">
-            <div className="header-logo" style={Styles.Logo}>
-                <img src={LOGO_URL}
-                    alt="no-food-image"
-                    width={20}
-                />
+            {/* windows navabr */}
+            <div style={{ display: "flex", justifyContent: "space-around", width: "100vw" }}>
+                <div className="header-logo" style={Styles.Logo}>
+                    <img src={LOGO_URL}
+                        alt="no-food-image"
+                        width={20}
+                    />
+                </div>
+                <div className="Nav-Links">
+                    <ul>
+                        <li>HOME</li>
+                        <li>About</li>
+                        <li>Follow Us</li>
+                        <li>CART-[0]</li>
+                        <button onClick={() => {
+                            btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")
+                        }}
+                            style={Styles.Login}>{btnStatus}</button>
+                    </ul>
+                </div>
             </div>
-            <div className="Nav-Links">
-                <ul>
-                    <li>HOME</li>
-                    <li>About</li>
-                    <li>Follow Us</li>
-                    <li>CART-[0]</li>
-                    <button onClick={() => {
-                        btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")
-                    }}
-                        style={Styles.Login}>{btnStatus}</button>
-                </ul>
+            {/* Mobile responsive */}
+            <div className="mob-res" >
+                <div className="header-logo" style={Styles.Logo}>
+                    <img src={LOGO_URL}
+                        alt="no-food-image"
+                        width={20}
+                    />
+                </div>
+                <div className="Nav-Links">
+                    <ul>
+                        <li>HOME</li>
+                        <li>About</li>
+                        <li>Follow Us</li>
+                        <li>CART-[0]</li>
+                        <button onClick={() => {
+                            btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")
+                        }}
+                            style={Styles.Login}>{btnStatus}</button>
+                    </ul>
+                </div>
             </div>
         </header>
     )

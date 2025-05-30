@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 const Body = () => {
 
     const [listRestaurant, setListRestaurant] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [search, setSearch] = useState("");
 
     const fetchData = async () => {
@@ -19,6 +20,7 @@ const Body = () => {
         // Only set state if restaurants exists
         if (restaurants) {
             setListRestaurant(restaurants);
+            setFilteredRestaurant(restaurants)
         } else {
             console.log("Restaurant data not found in API response.");
         }
@@ -37,15 +39,11 @@ const Body = () => {
 
     function handleSearching() {
         const filteredSearch = listRestaurant.filter((item) => item.info.name.toLowerCase().includes(search.toLowerCase()))
-        setListRestaurant(filteredSearch)
+        // setListRestaurant(filteredSearch)
+        setFilteredRestaurant(filteredSearch)
     }
 
-    return listRestaurant.length === 0 ? <div className="body">
-
-        <div className="res-container">
-            <Simmer />
-        </div>
-    </div> : (
+    return (
         <div className="body">
             <div className="search">
                 <input type="text" onChange={(e) => setSearch(e.target.value)} className="search_input_Box" placeholder="Search Food Here... 😋" />
@@ -53,22 +51,32 @@ const Body = () => {
                     <img src={BTN_URL} width={15} alt="" />
                 </button>
             </div>
-
             <div className="filter-btn-space">
                 <button onClick={() => {
-                    const filteredList = listRestaurant.filter((item) => item.info.avgRating > 4.2);
-                    setListRestaurant(filteredList);
-                }} className="filter-btn">🍔Top rated restaurant</button>
+                    setFilteredRestaurant(listRestaurant);
+                }} className="filter-btn">All Restaurant</button>
+                <button onClick={() => {
+                    const filteredList = filteredRestaurant.filter((item) => item.info.avgRating > 4.2);
+                    setFilteredRestaurant(filteredList);
+                }} className="filter-btn">Top rated restaurant</button>
+
             </div>
-            <div className="res-container">
-                {
-                    listRestaurant.map((restaurant) => {
-                        return (
-                            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-                        )
-                    })
-                }
-            </div>
+
+            {
+                listRestaurant.length === 0 ? <div className="res-container">
+                    <Simmer />
+                </div> :
+                    <div className="res-container">
+                        {
+                            filteredRestaurant.map((restaurant) => {
+                                return (
+                                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                                )
+                            })
+                        }
+                    </div>
+            }
+
 
         </div>
     )
