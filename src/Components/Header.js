@@ -39,27 +39,7 @@ export default function Header() {
                     </ul>
                 </div>
             </div>
-            {/* Mobile responsive */}
-            <div className="mob-res" >
-                <div className="header-logo" style={Styles.Logo}>
-                    <img src={LOGO_URL}
-                        alt="no-food-image"
-                        width={20}
-                    />
-                </div>
-                <div className="Nav-Links">
-                    <ul>
-                        <li>HOME</li>
-                        <li>About</li>
-                        <li>Follow Us</li>
-                        <li>CART-[0]</li>
-                        <button onClick={() => {
-                            btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")
-                        }}
-                            style={Styles.Login}>{btnStatus}</button>
-                    </ul>
-                </div>
-            </div>
+
         </header>
     )
 }

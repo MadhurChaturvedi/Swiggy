@@ -59,6 +59,10 @@ const Body = () => {
                     const filteredList = filteredRestaurant.filter((item) => item.info.avgRating > 4.2);
                     setFilteredRestaurant(filteredList);
                 }} className="filter-btn">Top rated restaurant</button>
+                <button onClick={() => {
+                    const filteredList = filteredRestaurant.filter((item) => item.info.name.includes("Ice Creams"));
+                    setFilteredRestaurant(filteredList);
+                }} className="filter-btn">Ice Cream</button>
 
             </div>
 
