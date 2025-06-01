@@ -1,7 +1,7 @@
 import { RestaurantCard } from "./Components/RestaurantCard"
 import Simmer from "./Components/Simmer.js";
 import { BTN_URL } from "./utils/const.js"
-
+import { Link } from "react-router";
 import { useState, useEffect } from "react"
 
 const Body = () => {
@@ -74,7 +74,7 @@ const Body = () => {
                         {
                             filteredRestaurant.map((restaurant) => {
                                 return (
-                                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                                    <Link style={{color:"#2c3e50"}} key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}><RestaurantCard resData={restaurant} /></Link>
                                 )
                             })
                         }

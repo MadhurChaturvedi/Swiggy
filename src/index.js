@@ -8,6 +8,7 @@ import About from "./pages/About.js";
 import Contact from "./pages/Contact.js";
 import Error from "./pages/Error.js";
 import Follow from "./pages/Follow.js";
+import Restaurantmenu from "./Components/Restaurantmenu.js";
 
 function AppLayout() {
     return (
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/follow",
                 element: <Follow />
+            },
+            {
+                path: "/restaurant/:ID",
+                element: <Restaurantmenu />
             },
         ],
         errorElement: <Error />
