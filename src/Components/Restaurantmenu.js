@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import Simmer from './Simmer';
+// import Simmer from './Simmer';
 import { CDN_URL } from '../utils/const';
 import { Link, useParams } from "react-router"
 
 export default function Restaurantmenu() {
+
+
+    const SimmerSingplePage = () => {
+        return (
+            <div style={{ width: "100vw", height: "90vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div className='simmer-card'></div>
+            </div >
+        )
+    }
+
 
     const [resInfo, setResInfo] = useState(null);
     const { ID } = useParams();
@@ -21,7 +31,7 @@ export default function Restaurantmenu() {
         setResInfo(resjson.data)
     };
 
-    if (resInfo === null) return <Simmer />
+    if (resInfo === null) return <SimmerSingplePage />
 
     // const { , cuisines, costForTwo } = resInfo?.cards[2]?.card?.card?.info;
 
@@ -34,6 +44,8 @@ export default function Restaurantmenu() {
 
     // const cards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
     // console.log(itemCards)
+
+
 
     return (
 
