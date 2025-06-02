@@ -263,3 +263,48 @@ footer {
 .filter-btn:active {
   opacity: 0.4;
 }
+
+/* Resturant Menu */
+
+.menu {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.res-img {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  border-radius: 2rem;
+  margin-top: 10px;
+}
+
+.btn-left {
+  width: 100%;
+  /* background: red; */
+  margin-bottom: 5px;
+  padding-left: 5%;
+}
+
+.btn-left button {
+  padding: 2px 10px 0px 10px;
+  border-radius: 10px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-left button:hover {
+  background: #8e2cdd;
+  transition: 0.3s;
+  color: #ffff;
+}
+
+.btn-left button:active {
+  opacity: 0.6;
+}

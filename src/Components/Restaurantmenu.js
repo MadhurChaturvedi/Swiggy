@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Simmer from './Simmer';
 import { CDN_URL } from '../utils/const';
-import { useParams } from "react-router"
+import { Link, useParams } from "react-router"
 
 export default function Restaurantmenu() {
 
@@ -38,11 +38,18 @@ export default function Restaurantmenu() {
     return (
 
         <div className='menu'>
-            <img src={CDN_URL + cloudinaryImageId} alt="" />
-            <h1>{name}</h1>
-            <h3>{cuisines}</h3>
-            <h4>{costForTwo}</h4>
-            <h4>{areaName}</h4>
+            <div className='btn-left'>
+                <Link to={"/"}><button>Back to All product's </button></Link>
+            </div>
+            <div className='res-img'>
+                <img src={CDN_URL + cloudinaryImageId} alt="" />
+            </div>
+            <div>
+                <h1>{name}</h1>
+                <h3>{cuisines}</h3>
+                <h4>₹ {costForTwo}</h4>
+                <h4 style={{ display: "flex", alignItems: "center" }}><img width={30} src="https://cdn-icons-png.flaticon.com/512/5632/5632658.png" alt="" /> {areaName}</h4>
+            </div>
         </div>
     )
 
