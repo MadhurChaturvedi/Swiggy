@@ -308,3 +308,12 @@ footer {
 .btn-left button:active {
   opacity: 0.6;
 }
+
+/* User card */
+
+.user-card {
+  padding: 5px;
+  background: #d4baea;
+  border-radius: 15px;
+  width: 300px;
+}

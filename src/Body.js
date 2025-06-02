@@ -74,7 +74,7 @@ const Body = () => {
                         {
                             filteredRestaurant.map((restaurant) => {
                                 return (
-                                    <Link style={{color:"#2c3e50"}} key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}><RestaurantCard resData={restaurant} /></Link>
+                                    <Link style={{ color: "#2c3e50" }} key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}><RestaurantCard resData={restaurant} /></Link>
                                 )
                             })
                         }
