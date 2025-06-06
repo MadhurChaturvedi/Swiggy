@@ -4,13 +4,20 @@ import React from "react"
 class About extends React.Component {
     constructor(props) {
         super(props);
+        console.log("About Constructor")
 
     }
+
+
+    componentDidMount() {
+        console.log("componentDidMount")
+    }
     render() {
+        console.log("About render")
         return (
             <div>
                 About Us fuck you you shit fat
-                < User name={"Fuck..."} location={"Gwalior"} />
+                < User  />
             </div >
         )
     }
