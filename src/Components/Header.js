@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { LOGO_URL } from "../utils/const"
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export default function Header() {
     const Styles = {
@@ -22,6 +23,8 @@ export default function Header() {
     useEffect(() => {
         console.log("useEffect called");
     }, [btnStatus])
+
+    const OnlineStatus = useOnlineStatus();
     return (
         <header className="header">
             {/* windows navbar */}
@@ -34,10 +37,15 @@ export default function Header() {
                 </div>
                 <div className="Nav-Links">
                     <ul>
+                        <li style={{ display: "flex", alignItems: "center" }}><Link style={{ display: "flex", alignItems: "center" }} className="link">Status - [ {
+                            OnlineStatus === true ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="" /> : <p>🔴</p>
+
+                         }]</Link></li>
                         <li><Link to="/" className="link">HOME</Link></li>
                         <li><Link to="/about" className="link">ABOUT</Link></li>
                         <li><Link to="/follow" className="link">FOLLOW US</Link></li>
                         <li><Link to="/contact" className="link">Contact</Link></li>
+
                         <li>CART-[0]</li>
                         <button onClick={() => {
                             btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")

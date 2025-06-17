@@ -14,8 +14,6 @@ export default function useRestaurantMenu(resId) {
         }
     };
     useEffect(() => {
-
-
         fetchMenu();
     }, []);
 

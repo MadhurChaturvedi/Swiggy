@@ -3,6 +3,8 @@ import Simmer from "./Components/Simmer.js";
 import { BTN_URL } from "./utils/const.js"
 import { Link } from "react-router";
 import { useState, useEffect } from "react"
+import useOnlineStatus from "./utils/useOnlineStatus.js";
+import gif from "./assets/tenor.gif"
 
 const Body = () => {
 
@@ -37,11 +39,17 @@ const Body = () => {
     //     return  <Simmer />
     // }
 
+    const handleOnlineStatus = useOnlineStatus()
+
     function handleSearching() {
         const filteredSearch = listRestaurant.filter((item) => item.info.name.toLowerCase().includes(search.toLowerCase()))
         // setListRestaurant(filteredSearch)
         setFilteredRestaurant(filteredSearch)
     }
+
+    if (handleOnlineStatus === false) return <div>
+        <img src={gif} alt="" />
+    </div>
 
     return (
         <div className="body">
@@ -65,6 +73,7 @@ const Body = () => {
                 }} className="filter-btn">Ice Cream</button>
 
             </div>
+
 
             {
                 listRestaurant.length === 0 ? <div className="res-container">
