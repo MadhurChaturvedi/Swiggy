@@ -40,11 +40,12 @@ export default function Header() {
                         <li style={{ display: "flex", alignItems: "center" }}><Link style={{ display: "flex", alignItems: "center" }} className="link">Status - [ {
                             OnlineStatus === true ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="" /> : <p>🔴</p>
 
-                         }]</Link></li>
+                        }]</Link></li>
                         <li><Link to="/" className="link">HOME</Link></li>
                         <li><Link to="/about" className="link">ABOUT</Link></li>
                         <li><Link to="/follow" className="link">FOLLOW US</Link></li>
                         <li><Link to="/contact" className="link">Contact</Link></li>
+                        <li><Link to="/Grocoery" className="link">Grocoery</Link></li>
 
                         <li>CART-[0]</li>
                         <button onClick={() => {

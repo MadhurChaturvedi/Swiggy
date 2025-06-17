@@ -23,6 +23,7 @@ export const RestaurantCard = (props) => {
                     : "Price not available"} */}
                 {costForTwo}
             </p>
+            
             <div style={{ paddingTop: "5px", display: "flex", flexDirection: 'column', gap: "15px" }}>
                 <button className="buy">Buy</button>
                 <button className="buy">Add to Cart</button>

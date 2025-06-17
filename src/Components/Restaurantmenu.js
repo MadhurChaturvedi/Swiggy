@@ -48,9 +48,9 @@ export default function Restaurantmenu() {
 
     // const cards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
     // console.log(itemCards)
-    const { name, cuisines, costForTwo, cloudinaryImageId } = resInfo?.cards[2]?.card?.card?.info
+    const { name, cuisines, costForTwo, cloudinaryImageId, city } = resInfo?.cards[2]?.card?.card?.info
 
-
+    //  const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card
     return (
 
         <div className='menu'>
@@ -64,7 +64,8 @@ export default function Restaurantmenu() {
                 <h1>{name}</h1>
                 <h3>{cuisines}</h3>
                 <h4>₹ {costForTwo}</h4>
-                {/* <h4 style={{ display: "flex", alignItems: "center" }}><img width={30} src="https://cdn-icons-png.flaticon.com/512/5632/5632658.png" alt="" /> {areaName}</h4> */}
+                <h4>{city}</h4>
+                {/* <h4>{itemCards[0].card.info.variantsV2.variantGroups[0].name}</h4> */}
             </div>
         </div>
     )
@@ -73,3 +74,5 @@ export default function Restaurantmenu() {
 
 
 // 25:11
+
+// Learn ESlinter

@@ -280,7 +280,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 300px;
   border-radius: 2rem;
   margin-top: 10px;
 }
