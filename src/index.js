@@ -10,6 +10,7 @@ import Error from "./pages/Error.js";
 import Follow from "./pages/Follow.js";
 import Restaurantmenu from "./Components/Restaurantmenu.js";
 import { lazy, Suspense } from "react";
+import "../index.css"
 // import Grocoery from "./Components/Grocoery.js";
 
 // chuncking - mean we have to make out code in to chunks 

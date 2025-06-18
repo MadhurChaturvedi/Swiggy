@@ -10,7 +10,9 @@
   "author": "madhur",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.15.1"
+    "parcel": "^2.15.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
     "react": "^19.1.0",
