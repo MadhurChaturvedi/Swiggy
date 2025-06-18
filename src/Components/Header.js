@@ -1,58 +1,86 @@
-import { useEffect, useState } from "react"
-import { LOGO_URL } from "../utils/const"
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { LOGO_URL } from "../utils/const";
+import { Link } from "react-router"; // fixed react-router
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 export default function Header() {
-    const Styles = {
-        Logo: {
-            display: "flex",
-            alignItem: "center",
-            justifyContent: "center",
-            gap: "5px",
-            cursor: "pointer"
-        },
-       
-    }
+  const [btnStatus, setBtnStatus] = useState("Login");
+  const [showMenu, setShowMenu] = useState(false);
+  const onlineStatus = useOnlineStatus();
 
-    const [btnStatus, setBtnStatus] = useState("Login");
-    // useEffect called
-    useEffect(() => {
-        console.log("useEffect called");
-    }, [btnStatus])
+  useEffect(() => {
+    console.log("useEffect called");
+  }, [btnStatus]);
 
-    const OnlineStatus = useOnlineStatus();
-    return (
-        <header className="w-full flex justify-center items-center h-14">
-            {/* windows navbar */}
-            <div className="flex gap-9 items-center  justify-around w-5/6 px-10 ">
-                <div className="flex" style={Styles.Logo}>
-                    <img src={LOGO_URL}
-                        alt="no-food-image"
-                        width={40}
-                    />
-                </div>
-                <div className="flex items-center">
-                    <ul className="flex items-center gap-3 select-none">
+  return (
+    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+      {/* Top Nav */}
+      <div className="flex justify-between items-center px-6 py-3 md:px-10">
+        {/* Logo */}
+        <div className="flex items-center gap-2 cursor-pointer">
+          <img src={LOGO_URL} alt="logo" className="w-10 h-10" />
+          <span className="font-bold text-xl">Foodies</span>
+        </div>
 
-                        <li><Link to="/" className="uppercase font-mono hover:text-purple-600 transition-all duration-75">HOME</Link></li>
-                        <li><Link to="/about" className="uppercase font-mono hover:text-purple-600 transition-all duration-75">ABOUT</Link></li>
-                        <li><Link to="/follow" className="uppercase font-mono hover:text-purple-600 transition-all duration-75">FOLLOW US</Link></li>
-                        <li><Link to="/contact" className="uppercase font-mono hover:text-purple-600 transition-all duration-75">Contact</Link></li>
-                        <li><Link to="/Grocoery" className="uppercase font-mono hover:text-purple-600 transition-all duration-75">Grocoery</Link></li>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex gap-5 items-center text-sm font-medium uppercase">
+          <li><Link to="/" className="hover:text-purple-600 transition">Home</Link></li>
+          <li><Link to="/about" className="hover:text-purple-600 transition">About</Link></li>
+          <li><Link to="/follow" className="hover:text-purple-600 transition">Follow Us</Link></li>
+          <li><Link to="/contact" className="hover:text-purple-600 transition">Contact</Link></li>
+          <li><Link to="/Grocoery" className="hover:text-purple-600 transition">Grocery</Link></li>
+          <li>Cart - [0]</li>
+          <li className="flex items-center gap-1">
+            Status -
+            {onlineStatus
+              ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="online" />
+              : <span>🔴</span>}
+          </li>
+          <button
+            className="px-3 py-1 bg-purple-600 text-white rounded"
+            onClick={() => setBtnStatus(prev => prev === "Login" ? "Logout" : "Login")}
+          >
+            {btnStatus}
+          </button>
+        </ul>
 
-                        <li>CART-[0]</li>
-                        <li style={{ display: "flex", alignItems: "center" }}><Link style={{ display: "flex", alignItems: "center" }} className="link">Status - [ {
-                            OnlineStatus === true ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="" /> : <p>🔴</p>
+        {/* Hamburger Icon for Mobile */}
+        <div className="md:hidden text-2xl">
+          {showMenu ? (
+            <HiX onClick={() => setShowMenu(false)} />
+          ) : (
+            <HiMenuAlt3 onClick={() => setShowMenu(true)} />
+          )}
+        </div>
+      </div>
 
-                        }]</Link></li>
-                        <button className="px-3 py-0.5 bg-purple-600 text-white text-center" onClick={() => {
-                            btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login")
-                        }}>{btnStatus}</button>
-                    </ul>
-                </div>
-            </div>
-
-        </header>
-    )
+      {/* Mobile Sidebar */}
+      <div className={`md:hidden fixed top-0 right-0 h-full bg-white w-1/2 shadow-lg z-40 transition-transform duration-300 ease-in-out ${showMenu ? 'translate-x-0' : 'translate-x-full'}`}>
+        <ul className="flex flex-col gap-4 p-6 text-base font-medium">
+          <li><Link to="/" onClick={() => setShowMenu(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setShowMenu(false)}>About</Link></li>
+          <li><Link to="/follow" onClick={() => setShowMenu(false)}>Follow Us</Link></li>
+          <li><Link to="/contact" onClick={() => setShowMenu(false)}>Contact</Link></li>
+          <li><Link to="/Grocoery" onClick={() => setShowMenu(false)}>Grocery</Link></li>
+          <li>Cart - [0]</li>
+          <li className="flex items-center gap-1">
+            Status -
+            {onlineStatus
+              ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="online" />
+              : <span>🔴</span>}
+          </li>
+          <button
+            className="px-3 py-1 bg-purple-600 text-white rounded w-fit"
+            onClick={() => {
+              setBtnStatus(prev => prev === "Login" ? "Logout" : "Login");
+              setShowMenu(false);
+            }}
+          >
+            {btnStatus}
+          </button>
+        </ul>
+      </div>
+    </header>
+  );
 }

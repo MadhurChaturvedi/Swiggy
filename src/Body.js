@@ -58,8 +58,9 @@ const Body = () => {
             </div>
         );
 
+    let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     return (
-        <div className="w-full pt-4 flex items-center justify-center flex-col">
+        <div className="w-full pt-4 flex items-center justify-center flex-col mt-20">
             <div className="w-full border flex justify-center items-center p-3">
                 <input
                     type="text"
@@ -76,7 +77,7 @@ const Body = () => {
                     onClick={() => {
                         setFilteredRestaurant(listRestaurant);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-2"
+                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
                 >
                     All Restaurant
                 </button>
@@ -87,7 +88,7 @@ const Body = () => {
                         );
                         setFilteredRestaurant(filteredList);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-2"
+                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
                 >
                     Top rated restaurant
                 </button>
@@ -98,29 +99,38 @@ const Body = () => {
                         );
                         setFilteredRestaurant(filteredList);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-2"
+                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
                 >
                     Ice Cream
                 </button>
             </div>
 
             {listRestaurant.length === 0 ? (
-                <div className="res-container">
-                    <Simmer />
+                <div className=" py-8 w-full">
+                    <div className="container max-w-7xl mx-auto px-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {
+                                num.map((_, index) => (<Simmer key={index} />))
+                            }
+                        </div>
+                    </div>
                 </div>
             ) : (
-                <div className="res-container">
-                    {filteredRestaurant.map((restaurant) => {
-                        return (
-                            <Link
-                                style={{ color: "#2c3e50" }}
-                                key={restaurant.info.id}
-                                to={`/restaurant/${restaurant.info.id}`}
-                            >
-                                <RestaurantCard resData={restaurant} />
-                            </Link>
-                        );
-                    })}
+
+                <div className=" py-8">
+                    <div className="container max-w-7xl mx-auto px-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {filteredRestaurant.map((restaurant) => (
+                                <Link
+                                    key={restaurant.info.id}
+                                    to={`/restaurant/${restaurant.info.id}`}
+                                    className="text-gray-800 no-underline"
+                                >
+                                    <RestaurantCard resData={restaurant} />
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
