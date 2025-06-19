@@ -77,7 +77,7 @@ const Body = () => {
                     onClick={() => {
                         setFilteredRestaurant(listRestaurant);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
+                    className="p-2 border hover:bg-slate-100"
                 >
                     All Restaurant
                 </button>
@@ -88,7 +88,7 @@ const Body = () => {
                         );
                         setFilteredRestaurant(filteredList);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
+                    className="p-2 border hover:bg-slate-100"
                 >
                     Top rated restaurant
                 </button>
@@ -99,7 +99,7 @@ const Body = () => {
                         );
                         setFilteredRestaurant(filteredList);
                     }}
-                    className="bg-slate-400 text-white rounded-full p-1 hover:border hover:text-slate-700"
+                    className="p-2 border hover:bg-slate-100"
                 >
                     Ice Cream
                 </button>
