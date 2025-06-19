@@ -14,7 +14,7 @@ export default function Header() {
   }, [btnStatus]);
 
   return (
-    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+    <header className="w-full bg-white border fixed top-0 left-0 z-50">
       {/* Top Nav */}
       <div className="flex justify-between items-center px-6 py-3 md:px-10">
         {/* Logo */}
@@ -57,14 +57,15 @@ export default function Header() {
 
       {/* Mobile Sidebar */}
       <div className={`md:hidden fixed top-0 right-0 h-full bg-white w-1/2 shadow-lg z-40 transition-transform duration-300 ease-in-out ${showMenu ? 'translate-x-0' : 'translate-x-full'}`}>
-        <ul className="flex flex-col gap-4 p-6 text-base font-medium">
-          <li><Link to="/" onClick={() => setShowMenu(false)}>Home</Link></li>
-          <li><Link to="/about" onClick={() => setShowMenu(false)}>About</Link></li>
-          <li><Link to="/follow" onClick={() => setShowMenu(false)}>Follow Us</Link></li>
-          <li><Link to="/contact" onClick={() => setShowMenu(false)}>Contact</Link></li>
-          <li><Link to="/Grocoery" onClick={() => setShowMenu(false)}>Grocery</Link></li>
-          <li>Cart - [0]</li>
-          <li className="flex items-center gap-1">
+        <ul className="flex flex-col gap-4 p-6 text-base font-medium border">
+          <li className=" flex justify-end" onClick={() => setShowMenu(false)}><button><HiX /></button></li>
+          <li className="border p-2"><Link to="/" onClick={() => setShowMenu(false)}>Home</Link></li>
+          <li className="border p-2"><Link to="/about" onClick={() => setShowMenu(false)}>About</Link></li>
+          <li className="border p-2"><Link to="/follow" onClick={() => setShowMenu(false)}>Follow Us</Link></li>
+          <li className="border p-2"><Link to="/contact" onClick={() => setShowMenu(false)}>Contact</Link></li>
+          <li className="border p-2"><Link to="/Grocoery" onClick={() => setShowMenu(false)}>Grocery</Link></li>
+          <li className="border p-2">Cart - [0]</li>
+          <li className="flex items-center gap-1 border p-2">
             Status -
             {onlineStatus
               ? <img width={15} src="https://assets-v2.lottiefiles.com/a/a52ff63e-1163-11ee-8709-e7f491c567ab/8NpTydAKvR.gif" alt="online" />
