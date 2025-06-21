@@ -1,4 +1,4 @@
-import { RestaurantCard } from "./Components/RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./Components/RestaurantCard";
 import Simmer from "./Components/Simmer.js";
 import { BTN_URL } from "./utils/const.js";
 import { Link } from "react-router";
@@ -6,16 +6,21 @@ import { useState, useEffect } from "react";
 import useOnlineStatus from "./utils/useOnlineStatus.js";
 import gif from "./assets/tenor.gif";
 
+
 const Body = () => {
     const [listRestaurant, setListRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [search, setSearch] = useState("");
+
+    const PromotedCard = withPromotedLabel(RestaurantCard)
 
     const fetchData = async () => {
         const data = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2546547&lng=77.4006229&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
         const json = await data.json();
+        console.log(json);
+
 
         // Check and extract restaurant data safely
         const restaurants =
@@ -58,7 +63,13 @@ const Body = () => {
             </div>
         );
 
-    let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    let num = [1, 2, 3,
+        4, 5, 6,
+        7, 8, 9,
+        10, 11, 12,
+        13, 14, 15,
+        16, 17, 18,
+        19, 20]
     return (
         <div className="w-full pt-4 flex items-center justify-center flex-col mt-20">
             <div className="w-full border flex justify-center items-center p-3">
@@ -126,7 +137,11 @@ const Body = () => {
                                     to={`/restaurant/${restaurant.info.id}`}
                                     className="text-gray-800 no-underline"
                                 >
-                                    <RestaurantCard resData={restaurant} />
+                                    {
+                                        // sadly this feature is not working because swiggy api is removed that promoted shit fuck you 😠
+                                        restaurant.info.isOpen=== true ? <PromotedCard resData={restaurant} /> : <RestaurantCard resData={restaurant} />
+                                    }
+
                                 </Link>
                             ))}
                         </div>
