@@ -70,7 +70,6 @@ export default function Restaurantmenu() {
                 <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-gray-900">Spicy Chicken Burger</h3>
                     <p className="text-sm mb-4 text-gray-600">
-                        Juicy grilled chicken patty with spicy sauce, lettuce & tomato on a toasted bun.
                     </p>
 
                     <div className="flex items-center justify-between mt-6">
@@ -85,11 +84,11 @@ export default function Restaurantmenu() {
             {/* Product Info / Description */}
             <div className="max-w-xl">
                 <h4 className="text-sm font-semibold text-red-600 mb-2">Best Seller</h4>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                {/* <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
                     Taste the Heat 🔥
-                </h2>
+                </h2> */}
                 <div className="space-y-6 text-gray-700 text-base leading-relaxed">
-                    <p>
+                    {/* <p>
                         Our Spicy Chicken Burger is made from premium grilled chicken, marinated in secret spices and topped with our signature hot sauce.
                     </p>
                     <p>
@@ -97,7 +96,7 @@ export default function Restaurantmenu() {
                     </p>
                     <p>
                         Pair it with our crispy fries and a cold drink to complete your delicious meal!
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </div>
