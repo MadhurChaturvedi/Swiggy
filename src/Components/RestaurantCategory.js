@@ -3,11 +3,12 @@ import ItemList from "./itemList"
 import { CDN_URL } from '../utils/const';
 
 import { useState } from "react";
-export default function RestaurantCategory({ data }) {
+export default function RestaurantCategory({ data, showItem, setShowIndex }) {
   // console.log(data)
-  const [showItem, setShowItem] = useState(false)
-  function handleClick() {
-    setShowItem(!showItem)
+
+  const handleClick = () => {
+    setShowIndex();
+    // lifting the state up
   }
 
   return (

@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react'
-
+import { useState } from 'react';
 import { CDN_URL } from '../utils/const.js';
 import { Link, useParams } from "react-router";
 import useRestaurantMenu from '../utils/useRestaurantMenu.js';
@@ -7,19 +7,14 @@ import MenuSimmer from './MenuSimmer.js';
 import RestaurantCategory from './RestaurantCategory.js';
 
 
+
 export default function Restaurantmenu() {
 
-
-    const SimmerSingplePage = () => {
-        return (
-            <div style={{ width: "100vw", height: "90vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <div className='simmer-card'></div>
-            </div >
-        )
-    }
-
-
     // const [resInfo, setResInfo] = useState(null);
+
+
+    const [showIndex, setShowIndex] = useState(1)
+
     const { ID } = useParams();
 
     // console.log(resID);
@@ -73,6 +68,7 @@ export default function Restaurantmenu() {
     */
 
     //  const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card
+
     return (
 
         <div className="text-center pt-10">
@@ -99,8 +95,13 @@ export default function Restaurantmenu() {
 
                 </div>
                 {
-                    itemCards.map((item, index) => (<RestaurantCategory data={item.card?.info} key={index} />))
+                    itemCards.map((item, index) => (<RestaurantCategory
+                        showItem={index === showIndex ? true : false}
+                        setShowIndex={()=>setShowIndex(index)}
+                        data={item.card?.info} key={index} />))
                 }
+
+                {/* controlled Component */}
             </div>
             {/* category accordion */}
 
