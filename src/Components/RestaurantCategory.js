@@ -27,7 +27,7 @@ export default function RestaurantCategory({ data, showItem, setShowIndex }) {
               <strong><span>₹{data.defaultPrice / 100}</span> <span>{data.name}</span></strong>
               <div className="flex justify-center items-center gap-5">
                 <span>{data.description}</span><br />
-                <span><button className="absolute bg-white p-2 w-14 rounded-lg">Add +</button> <img src={CDN_URL + data.imageId} alt="" /></span>
+                <span><button className="absolute bg-white p-2 w-14 rounded-lg">Add +</button> <img className="w-32" src={CDN_URL + data.imageId} alt="" /></span>
               </div>
 
             </div>

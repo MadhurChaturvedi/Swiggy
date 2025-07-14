@@ -71,16 +71,18 @@ export default function Restaurantmenu() {
 
     return (
 
-        <div className="text-center pt-10">
+        <div className="text-center pt-10 ">
             <div>
-
-
-                <div className='flex  w-full items-center justify-center gap-20'>
-                    <div className='w-6/12 flex items-center justify-between px-6'>
-                        <span>
-                            <h3 className='font-bold my-10 text-2xl'>{name}</h3>
-                            {/* <p className='font-bold my-10 text-'>{cuisines.join(", ")} - ₹{costForTwo}</p> */}
-                        </span>
+                <div className='flex  w-full items-center justify-center gap-20  '>
+                    <div className='w-6/12 flex items-center justify-between mt-10  '>
+                        <div className='flex flex-row '>
+                            <ul className=' text-xl text-left'>
+                                <li><strong>Brand</strong> {name}</li>
+                                <li><strong>City</strong> {city}</li>
+                                <li><strong>Cuisines</strong> {cuisines}</li>
+                                {/* <li>{description}</li> */}
+                            </ul>
+                        </div>
                         <div>
                             <img
                                 src={CDN_URL + cloudinaryImageId
@@ -97,7 +99,7 @@ export default function Restaurantmenu() {
                 {
                     itemCards.map((item, index) => (<RestaurantCategory
                         showItem={index === showIndex ? true : false}
-                        setShowIndex={()=>setShowIndex(index)}
+                        setShowIndex={() => setShowIndex(index)}
                         data={item.card?.info} key={index} />))
                 }
 
