@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react'
 
-import { CDN_URL } from '../utils/const';
+import { CDN_URL } from '../utils/const.js';
 import { Link, useParams } from "react-router";
 import useRestaurantMenu from '../utils/useRestaurantMenu.js';
 import MenuSimmer from './MenuSimmer.js';
@@ -76,12 +76,34 @@ export default function Restaurantmenu() {
     return (
 
         <div className="text-center pt-10">
-            <h3 className='font-bold my-10 text-2xl'>{name}</h3>
-            <p className='font-bold my-10 text-'>{cuisines.join(", ")} - ₹{costForTwo}</p>
+            <div>
+
+
+                <div className='flex  w-full items-center justify-center gap-20'>
+                    <div className='w-6/12 flex items-center justify-between px-6'>
+                        <span>
+                            <h3 className='font-bold my-10 text-2xl'>{name}</h3>
+                            {/* <p className='font-bold my-10 text-'>{cuisines.join(", ")} - ₹{costForTwo}</p> */}
+                        </span>
+                        <div>
+                            <img
+                                src={CDN_URL + cloudinaryImageId
+                                }
+
+                                alt={name}
+                                className="w-full h-32 object-cover"
+                            />
+                        </div>
+                    </div>
+
+
+                </div>
+                {
+                    itemCards.map((item, index) => (<RestaurantCategory data={item.card?.info} key={index} />))
+                }
+            </div>
             {/* category accordion */}
-            {
-                itemCards.map((item, index) => (<RestaurantCategory data={item.card?.info} key={index} />))
-            }
+
         </div>
 
     )

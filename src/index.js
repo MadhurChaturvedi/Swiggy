@@ -13,6 +13,7 @@ import { lazy, Suspense } from "react";
 import "../index.css"
 // import Grocoery from "./Components/Grocoery.js";
 
+
 // chuncking - mean we have to make out code in to chunks 
 // Code splitting
 // dynamic bundeling
