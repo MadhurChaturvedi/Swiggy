@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/const";
 import { Link } from "react-router"; // fixed react-router
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import UseContext from "../utils/useContext";
+
 
 export default function Header() {
   const [btnStatus, setBtnStatus] = useState("Login");
   const [showMenu, setShowMenu] = useState(false);
   const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    console.log("useEffect called");
-  }, [btnStatus]);
+  const {loggedInUser} = useContext(UseContext)
 
   return (
     <header className="w-full bg-white border fixed top-0 left-0 z-50">
@@ -30,7 +30,7 @@ export default function Header() {
           <li><Link to="/follow" className="hover:text-purple-600 transition">Follow Us</Link></li>
           <li><Link to="/contact" className="hover:text-purple-600 transition">Contact</Link></li>
           <li><Link to="/Grocoery" className="hover:text-purple-600 transition">Grocery</Link></li>
-          <li>Cart - [0]</li>
+          <li>{loggedInUser} </li>
           <li className="flex items-center gap-1">
             Status -
             {onlineStatus
@@ -64,7 +64,7 @@ export default function Header() {
           <li className="border p-2"><Link to="/follow" onClick={() => setShowMenu(false)}>Follow Us</Link></li>
           <li className="border p-2"><Link to="/contact" onClick={() => setShowMenu(false)}>Contact</Link></li>
           <li className="border p-2"><Link to="/Grocoery" onClick={() => setShowMenu(false)}>Grocery</Link></li>
-          <li className="border p-2">Cart - [0]</li>
+          <li className="border p-2">Cart</li>
           <li className="flex items-center gap-1 border p-2">
             Status -
             {onlineStatus

@@ -9,8 +9,10 @@ import Contact from "./pages/Contact.js";
 import Error from "./pages/Error.js";
 import Follow from "./pages/Follow.js";
 import Restaurantmenu from "./Components/Restaurantmenu.js";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import "../index.css"
+import UseContext from "./utils/useContext.js";
+
 // import Grocoery from "./Components/Grocoery.js";
 
 
@@ -25,12 +27,33 @@ import "../index.css"
 const Grocoery = lazy(() => import("./Components/Grocoery.js"))
 
 function AppLayout() {
+
+    // authentication
+    const [useInfo, setUserInfo] = useState()
+
+    useEffect(() => {
+        // make a api call sand username and password
+        const data = {
+            name: "Madhur Chaturvedu"
+        }
+        setUserInfo(data.name);
+    }, [])
+
+
     return (
-        <div className="App">
-            <Header />
-            <Outlet />
-            <Footer />
-        </div>
+        // Default
+        <UseContext.Provider value={{ loggedInUser: useInfo }}>
+            {/* Madhur Chaturvedi */}
+            <div className="App">
+                <UseContext.Provider value={{ loggedInUser: "Ganduji" }}>
+                    <Header />
+                    {/* Ganduji */}
+
+                </UseContext.Provider>
+                <Outlet />
+                <Footer />
+            </div>
+        </UseContext.Provider>
     )
 }
 

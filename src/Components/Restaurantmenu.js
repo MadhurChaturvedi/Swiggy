@@ -55,7 +55,6 @@ export default function Restaurantmenu() {
     // const allData =  resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     const itemCards = recommendedSection?.card?.card?.itemCards || [];
 
-    console.log(itemCards)
     /*
       <img
                     src={CDN_URL + cloudinaryImageId
