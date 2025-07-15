@@ -2,10 +2,10 @@ import { RestaurantCard, withPromotedLabel } from "./Components/RestaurantCard";
 import Simmer from "./Components/Simmer.js";
 import { BTN_URL } from "./utils/const.js";
 import { Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useOnlineStatus from "./utils/useOnlineStatus.js";
 import gif from "./assets/tenor.gif";
-
+import UseContext from "./utils/useContext.js";
 
 const Body = () => {
     const [listRestaurant, setListRestaurant] = useState([]);
@@ -46,6 +46,8 @@ const Body = () => {
     //     return  <Simmer />
     // }
 
+    const { setUserInfo, loggedInUser } = useContext(UseContext);
+
     const handleOnlineStatus = useOnlineStatus();
 
     function handleSearching() {
@@ -72,6 +74,19 @@ const Body = () => {
         19, 20]
     return (
         <div className="w-full pt-4 flex items-center justify-center flex-col mt-20">
+            <div className="w-full border flex justify-end items-end p-3">
+                <input
+                    type="text"
+                    onChange={(e) => setUserInfo(e.target.value)}
+                    className=" p-2 w-60 bg-slate-100 rounded-sm outline-none border border"
+                    placeholder="Pls Enter UserName"
+                    value={loggedInUser}
+                />
+                {/* <button onClick={handleSearching} className="border flex justify-center items-center p-3 bg-purple-500">
+                    <img src={BTN_URL} width={15} alt="" />
+                </button> */}
+            </div>
+
             <div className="w-full border flex justify-center items-center p-3">
                 <input
                     type="text"
@@ -139,7 +154,7 @@ const Body = () => {
                                 >
                                     {
                                         // sadly this feature is not working because swiggy api is removed that promoted shit fuck you 😠
-                                        restaurant.info.isOpen=== true ? <PromotedCard resData={restaurant} /> : <RestaurantCard resData={restaurant} />
+                                        restaurant.info.isOpen === true ? <PromotedCard resData={restaurant} /> : <RestaurantCard resData={restaurant} />
                                     }
 
                                 </Link>

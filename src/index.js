@@ -42,14 +42,11 @@ function AppLayout() {
 
     return (
         // Default
-        <UseContext.Provider value={{ loggedInUser: useInfo }}>
+        <UseContext.Provider value={{ loggedInUser: useInfo, setUserInfo }}>
             {/* Madhur Chaturvedi */}
             <div className="App">
-                <UseContext.Provider value={{ loggedInUser: "Ganduji" }}>
-                    <Header />
-                    {/* Ganduji */}
-
-                </UseContext.Provider>
+                <Header />
+                {/* Ganduji */}
                 <Outlet />
                 <Footer />
             </div>
